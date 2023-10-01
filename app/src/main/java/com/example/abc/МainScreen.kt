@@ -1,6 +1,5 @@
 package com.example.abc
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,8 +18,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MainScreen(
     item: List<Item>,
@@ -34,8 +36,8 @@ fun MainScreen(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         content = {
             items(item) { photo ->
-                Image(
-                    painter = painterResource(id = photo.imageId),
+                GlideImage(
+                    model = photo.imageLowId,
                     contentDescription = "im",
                     modifier = Modifier
                         .fillMaxWidth()
@@ -56,5 +58,4 @@ fun MainScreen(
             )
             .padding(30.dp)
     )
-
 }

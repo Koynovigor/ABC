@@ -17,12 +17,16 @@ class MainActivity : ComponentActivity() {
             ABCTheme {
                 // A surface container using the 'background' color from the theme
                 val navController = rememberNavController()
-                var item = Item("", 0)
+                var item = Item("", 0, 0, 0)
                 
                 NavHost(
                     navController = navController,
-                    startDestination = Routes.MAIN_SCREEN
+                    startDestination = Routes.START_SCREEN
                 ){
+                    composable(Routes.START_SCREEN){
+                        StartScreen(navController = navController)
+                    }
+
                     composable(Routes.MAIN_SCREEN) {
                         MainScreen(
                             abcImage,
@@ -35,7 +39,10 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(Routes.TITLE_SCREEN) {
-                        TitleScreen(item = item)
+                        TitleScreen(
+                            item = item,
+                            navController
+                        )
                     }
                 }
 
