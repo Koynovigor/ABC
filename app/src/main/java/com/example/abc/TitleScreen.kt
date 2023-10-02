@@ -1,6 +1,7 @@
 package com.example.abc
 
 import android.media.MediaPlayer
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -91,10 +93,13 @@ fun TitleScreen(
                 modifier = Modifier
                     .padding(
                         top = 0.dp,
-                        bottom = 8.dp,
-                        start = 8.dp,
-                        end = 8.dp
-                    )
+                        bottom = 16.dp,
+                        start = 16.dp,
+                        end = 16.dp
+                    ),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White
+                )
             )  {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -113,6 +118,8 @@ fun TitleScreen(
                             .clickable {
                                 stateItem = prevItem(stateItem)
                             }
+                            .fillMaxHeight(),
+                        tint = Color.Black
                     )
                     Icon(
                         imageVector = Icons.Default.KeyboardArrowRight,
@@ -122,6 +129,8 @@ fun TitleScreen(
                             .clickable {
                                 stateItem = nextItem(stateItem)
                             }
+                            .fillMaxHeight(),
+                        tint = Color.Black
                     )
                 }
             }

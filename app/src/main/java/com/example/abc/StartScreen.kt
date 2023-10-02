@@ -70,6 +70,7 @@ fun StartScreen(
                         navController.navigate(Routes.MAIN_SCREEN)
                     }
                     .size(150.dp)
+                    .background(Color.Transparent)
             )
         }
 
